@@ -157,10 +157,6 @@ a{text-decoration: none; color: #333}
 }
 
 
-
-
-
-
 #nav{
     width: 100%;
     height: 50px;
@@ -200,6 +196,7 @@ a{text-decoration: none; color: #333}
 #nav>ul>li>.width100_bg{
     display: none;
     position: absolute;
+    z-index: 10;
     width: 100%;
     height: 300px;
     top: 158px;
@@ -318,8 +315,8 @@ a{text-decoration: none; color: #333}
     width: 100%;
     height: 420px;
     padding: 20px 0;
-    background: blueviolet;
-    
+   /*  background: blueviolet; */ /* 임의로 준 배경으로, 작업마지막에 없애준다 */
+    background: #f5f7fc;
 }
 .main_box_visual .inner{
     position: relative;
@@ -334,6 +331,10 @@ a{text-decoration: none; color: #333}
 }
 .sliderWrap ul li{
     position: absolute;
+    display: none;
+}
+.sliderWrap ul .active{
+    display: block;
 }
 .tabWrap{
     width: 330px;
@@ -348,20 +349,48 @@ a{text-decoration: none; color: #333}
     width: 100%;
     height:146px; 
 }
+.moreWrap{
+    position: absolute;
+    top: 110px;
+    right: 0;
+}
 .tabWrap .tapContents ul{
     position: relative;
 
 }
 .tabWrap .tapContents ul li{
     position: absolute;
+    display: none;
 }
-.tabWrap .tapContents ul li a{}
-.tabWrap .tapContents ul li a h3{}
-.tabWrap .tapContents ul li a p{}
-.tabWrap .tabs{}
-.tabWrap .tabs ul{}
-.tabWrap .tabs ul li{}
-.tabWrap .tabs ul li a{}
+.tabWrap .tapContents ul li.active{
+     display: block;
+}
+.tabWrap .tapContents ul li a{
+    color: #fff;
+}
+.tabWrap .tapContents ul li a h3{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    
+}
+.tabWrap .tapContents ul li a p{
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.tabWrap .tabs ul{margin-top: 25px;}
+.tabWrap .tabs ul li{
+    line-height: 1.3;
+}
+.tabWrap .tabs ul li a{
+    font-size: 14px;
+    letter-spacing: -1px; /* 자간 간격 */
+    color: #fff;
+    
+}
+.tabWrap .tabs ul li .active{text-decoration: underline;}
 .controlsWrap{
     width:183px;
     height: 60px;
@@ -405,24 +434,205 @@ a{text-decoration: none; color: #333}
 
 
 
-
-
-
-
-
 .bn_wrap_rolling{
     width: 100%;
     height: 115px;
     background: #ecf2f9;
+    padding-top: 20px;
 }
+.bn_wrap_rolling ul{
+    display: flex;
+    justify-content: center;
+}
+.bn_wrap_rolling ul li{
+    text-align: center;
+}
+.bn_wrap_rolling ul li a{
+    display: block;
+    width: 110px;
+    height: 60px;
+    overflow: hidden;
+    background: url(../img/250901_btn_rolling_off.png) left center no-repeat;
+}
+.bn_wrap_rolling ul li:hover a{
+    background: url(../img/250901_btn_rolling_on.png) left center no-repeat;
+}
+.bn_wrap_rolling ul li:hover a~span{  
+    color: blue;
+}
+
+.bn_wrap_rolling ul li:nth-child(1) a{
+    background-position: -950px 0;
+}
+.bn_wrap_rolling ul li:nth-child(2) a{
+    background-position: 0 0;
+}
+.bn_wrap_rolling ul li:nth-child(3) a{
+    background-position: -110px 0;
+}
+.bn_wrap_rolling ul li:nth-child(4) a{
+    background-position: -1080px 0;
+}
+.bn_wrap_rolling ul li:nth-child(5) a{
+    background-position: -240px 5px;
+}
+.bn_wrap_rolling ul li:nth-child(6) a{
+    background-position: -360px 0;
+}
+.bn_wrap_rolling ul li:nth-child(7) a{
+    background-position: -480px 0;
+}
+.bn_wrap_rolling ul li:nth-child(8) a{
+    background-position: -600px 0;
+}
+.bn_wrap_rolling ul li:nth-child(9) a{
+    background-position: -720px 0;
+}
+.bn_wrap_rolling ul li:nth-child(10) a{
+    background-position: -1200px 0;
+}
+.bn_wrap_rolling ul li span{
+    font-size: 13px;
+    color: #595959;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
 .box_wrap_latest{
     width: 100%;
     padding: 20px 0;
-    background: #f0f;
+    /* background: #f0f; */
     height: 325px;
     position: relative;
-    top: -55px;
+    top: -30px;
 }
+
+
+
+.box_wrap_latest .inner{
+    display: flex;
+    justify-content: space-between;
+}
+.box_wrap_latest .inner .box_container{
+    border: 5px solid #c4c4c4;
+    position: relative;
+}
+.box_wrap_latest .inner .box_container article{
+    padding: 15px;
+
+}
+.plusBox{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+.box_wrap_latest .inner .box_container article .tap_news01{}
+.box_wrap_latest .inner .box_container article h3{
+    margin-bottom: 30px;
+    position: relative;
+}
+.box_wrap_latest .inner .box_container article h3 a{
+    font-size: 14px;
+    color: #5f5f5f;
+    font-weight: bold;
+    padding: 5px 13px;
+    
+}
+.box_wrap_latest .inner .box_container article h3 .bg_green{
+    background: #15989a;
+    color: #fff
+}
+.box_wrap_latest .inner .box_container article h3 .icon_green{
+    display: block;
+    width: 24px;
+    height: 12px;
+    background: url(../img/btn_latest_green.gif) no-repeat;
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+}
+.box_wrap_latest .inner .box_container article .tap_news02{
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: 100px;
+}
+.box_wrap_latest .inner .box_container article .box_desk{}
+
+.box_wrap_latest .inner .box_container article .box_desk .box_news{}
+.box_wrap_latest .inner .box_container article .box_desk .box_news h4{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: -5px;
+}
+.box_wrap_latest .inner .box_container article .box_desk .box_news .date{
+    font-size: 14px;
+    color: #292929;
+    margin-bottom: 10px;
+}
+.box_wrap_latest .inner .box_container article .box_desk .box_news .summary{
+    font-size: 14px;
+    color: #707070;
+    line-height: 1.2;
+}
+
+.box_wrap_latest .inner .box_container1{
+    width: 420px;
+    height: 240px;
+    /* background: red; */  /* 임의로 준 배경색으로, 마지막에지워준다 */
+    background: #fff;
+}
+.box_wrap_latest .inner .box_container2{
+    width: 430px;
+    height: 240px;
+    background: lightblue;
+}
+
+.box_wrap_latest .inner .popupImgs{
+    width: 300px;
+    height: 240px;
+    background: lightgreen
+}
+.list_news{
+    background: url(../img/bg_news_green02.gif) no-repeat;
+    height: 78px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.list_news ul{
+    padding: 15px 15px 15px 35px;
+}
+.list_news ul li{
+    list-style-type: square; /* 글앞에 점 */
+    color: #fff;
+    line-height: 120%;
+   
+}
+.list_news ul li h5{}
+.list_news ul li h5 a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hidden{display: none;}
+
+
+
+
+
+
+
 .box_wrap_cardnews2{
     width: 100%;
     height: 296px;
